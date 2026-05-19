@@ -1,3 +1,17 @@
+:root {
+  --french-puce: #4c1208;
+  --antique-ruby: #7b1d26;
+  --solid-pink: #893a49;
+  --parrot-pink: #ca99ab;
+  --queen-pink: #e4cddd;
+
+  --background: #fbf7f8;
+  --card: #ffffff;
+  --text-dark: #2f1b1d;
+  --text-muted: #5f4a4d;
+  --border: #e4cddd;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -5,8 +19,8 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #fffafd;
-  color: #2f2933;
+  background: var(--background);
+  color: var(--text-dark);
 }
 
 button,
@@ -37,7 +51,7 @@ button {
 .brand {
   border: none;
   background: transparent;
-  color: #c0266b;
+  color: var(--antique-ruby);
   font-size: 24px;
   font-weight: 800;
 }
@@ -49,25 +63,25 @@ button {
 }
 
 .nav-links button {
-  border: none;
+  border: 1px solid var(--queen-pink);
   background: white;
-  color: #4a3f47;
+  color: var(--french-puce);
   padding: 10px 14px;
   border-radius: 999px;
-  box-shadow: 0 6px 16px rgba(71, 31, 52, 0.08);
+  box-shadow: 0 6px 16px rgba(76, 18, 8, 0.08);
 }
 
 .nav-links button:hover {
-  background: #fce7f3;
+  background: var(--queen-pink);
 }
 
 .hero {
   max-width: 1180px;
   margin: 0 auto 28px;
   padding: 80px 48px;
-  background: linear-gradient(135deg, #ffffff, #fff1f7);
+  background: linear-gradient(135deg, #ffffff, var(--queen-pink));
   border-radius: 28px;
-  box-shadow: 0 20px 45px rgba(71, 31, 52, 0.1);
+  box-shadow: 0 20px 45px rgba(76, 18, 8, 0.12);
 }
 
 .section h2,
@@ -89,7 +103,7 @@ button {
 
 .eyebrow {
   margin: 0 0 10px;
-  color: #c0266b;
+  color: var(--antique-ruby);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -101,14 +115,14 @@ button {
   margin: 0;
   font-size: 56px;
   line-height: 1.05;
-  color: #2f2933;
+  color: var(--french-puce);
 }
 
 .hero-text {
   max-width: 620px;
   margin: 20px 0 0;
   font-size: 20px;
-  color: #4a3f47;
+  color: var(--text-muted);
 }
 
 .hero-actions {
@@ -129,18 +143,18 @@ button {
 }
 
 .primary-button {
-  background: #d63384;
+  background: var(--antique-ruby);
   color: white;
 }
 
 .primary-button:hover {
-  background: #b82b70;
+  background: var(--french-puce);
 }
 
 .secondary-button {
   background: white;
-  color: #c0266b;
-  border: 1px solid #f3c2d8;
+  color: var(--antique-ruby);
+  border: 1px solid var(--parrot-pink);
 }
 
 .section {
@@ -191,11 +205,11 @@ button {
 .booking-card,
 .form-card,
 .empty-state {
-  background: white;
+  background: var(--card);
   border-radius: 22px;
   padding: 24px;
-  box-shadow: 0 14px 30px rgba(71, 31, 52, 0.08);
-  border: 1px solid #f7d7e6;
+  box-shadow: 0 14px 30px rgba(76, 18, 8, 0.08);
+  border: 1px solid var(--border);
 }
 
 .step-card span {
@@ -205,8 +219,8 @@ button {
   border-radius: 50%;
   align-items: center;
   justify-content: center;
-  background: #fce7f3;
-  color: #c0266b;
+  background: var(--queen-pink);
+  color: var(--antique-ruby);
   font-weight: 800;
 }
 
@@ -223,13 +237,13 @@ button {
 }
 
 .price {
-  color: #c0266b !important;
+  color: var(--antique-ruby) !important;
   font-weight: 800;
 }
 
 .package-card button {
   margin-top: 12px;
-  background: #d63384;
+  background: var(--antique-ruby);
   color: white;
   width: 100%;
 }
@@ -250,10 +264,11 @@ button {
 .booking-form textarea {
   width: 100%;
   padding: 14px;
-  border: 1px solid #ead3df;
+  border: 1px solid var(--queen-pink);
   border-radius: 12px;
   font-size: 16px;
-  background: #fffafd;
+  background: #fffafb;
+  color: var(--text-dark);
 }
 
 .booking-form textarea {
