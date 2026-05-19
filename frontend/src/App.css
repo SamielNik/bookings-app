@@ -5,7 +5,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #fff7fb;
+  background: #fffafd;
   color: #2f2933;
 }
 
@@ -65,9 +65,26 @@ button {
   max-width: 1180px;
   margin: 0 auto 28px;
   padding: 80px 48px;
-  background: linear-gradient(135deg, #ffffff, #ffe4f1);
+  background: linear-gradient(135deg, #ffffff, #fff1f7);
   border-radius: 28px;
   box-shadow: 0 20px 45px rgba(71, 31, 52, 0.1);
+}
+
+.section h2,
+.section-header h2 {
+  color: #2f2933;
+}
+
+.step-card h3,
+.package-card h3,
+.booking-card h3 {
+  color: #2f2933;
+}
+
+.step-card p,
+.package-card p,
+.booking-details p {
+  color: #4a3f47;
 }
 
 .eyebrow {
@@ -84,13 +101,14 @@ button {
   margin: 0;
   font-size: 56px;
   line-height: 1.05;
+  color: #2f2933;
 }
 
 .hero-text {
   max-width: 620px;
   margin: 20px 0 0;
   font-size: 20px;
-  color: #5f5360;
+  color: #4a3f47;
 }
 
 .hero-actions {
