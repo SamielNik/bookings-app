@@ -129,7 +129,7 @@ function App() {
     <div className="app">
       <nav className="navbar">
         <button className="brand" onClick={() => handleNavClick("home")}>
-          Bookings App
+          Halo Events Connecticut
         </button>
 
         <div className="nav-links">
