@@ -133,11 +133,34 @@ function App() {
         </button>
 
         <div className="nav-links">
-          <button onClick={() => handleNavClick("home")}>Home</button>
-          <button onClick={() => handleNavClick("packages")}>Packages</button>
-          <button onClick={() => handleNavClick("booking")}>Request Booking</button>
-          <button onClick={() => handleNavClick("admin")}>Admin Dashboard</button>
-        </div>
+  <button
+    className={activePage === "home" ? "active-nav" : ""}
+    onClick={() => handleNavClick("home")}
+  >
+    Home
+  </button>
+
+  <button
+    className={activePage === "packages" ? "active-nav" : ""}
+    onClick={() => handleNavClick("packages")}
+  >
+    Packages
+  </button>
+
+  <button
+    className={activePage === "booking" ? "active-nav" : ""}
+    onClick={() => handleNavClick("booking")}
+  >
+    Request Booking
+  </button>
+
+  <button
+    className={activePage === "admin" ? "active-nav" : ""}
+    onClick={() => handleNavClick("admin")}
+  >
+    Admin Dashboard
+  </button>
+</div>
       </nav>
 
       {activePage === "home" && (

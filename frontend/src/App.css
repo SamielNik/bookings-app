@@ -93,6 +93,12 @@ body,
   background: var(--queen-pink);
 }
 
+.nav-links button.active-nav {
+  background: var(--queen-pink);
+  color: var(--french-puce);
+  border-color: var(--parrot-pink);
+}
+
 .hero {
   margin: 0 0 28px;
   padding: 80px 48px;
