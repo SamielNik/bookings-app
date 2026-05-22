@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 
+
+const API_BASE_URL =  import.meta.env.VITE_API_BASE_URL || "http://localhost:5001";
+
 function App() {
   const [activePage, setActivePage] = useState("home");
   const [formData, setFormData] = useState({
@@ -62,7 +65,7 @@ const [loginMessage, setLoginMessage] = useState("");
 
   const fetchBookings = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/bookings");
+      const res = await axios.get(`${API_BASE_URL}/bookings`);
       setBookings(res.data);
     } catch (error) {
       console.error(error);
@@ -105,7 +108,7 @@ const [loginMessage, setLoginMessage] = useState("");
     setLoginMessage("");
   
     try {
-      await axios.post("http://localhost:5001/admin/login", adminCredentials);
+      await axios.post(`${API_BASE_URL}/admin/login`, adminCredentials);
   
       setIsAdminLoggedIn(true);
       setActivePage("admin");
@@ -129,7 +132,7 @@ const [loginMessage, setLoginMessage] = useState("");
     setMessage("");
 
     try {
-      await axios.post("http://localhost:5001/bookings", formData);
+      await axios.post(`${API_BASE_URL}/bookings`, formData);
 
       setMessage("Booking request submitted successfully!");
       fetchBookings();
@@ -152,7 +155,7 @@ const [loginMessage, setLoginMessage] = useState("");
 
   const updateStatus = async (id, status) => {
     try {
-      await axios.put(`http://localhost:5001/bookings/${id}/status`, {
+      await axios.put(`${API_BASE_URL}/bookings/${id}/status`, {
         status,
       });
       fetchBookings();
