@@ -416,4 +416,27 @@ body,
   .section {
     padding: 24px 18px;
   }
+
+  .error-message {
+    margin: 16px 0 0;
+    padding: 12px 14px;
+    background: #fef2f2;
+    color: #b91c1c;
+    border-radius: 12px;
+    font-weight: 700;
+  }
+  
+  .admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  @media (max-width: 760px) {
+    .admin-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
 }

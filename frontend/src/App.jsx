@@ -18,6 +18,15 @@ function App() {
   const [message, setMessage] = useState("");
   const [bookings, setBookings] = useState([]);
 
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
+
+const [adminCredentials, setAdminCredentials] = useState({
+  username: "",
+  password: "",
+});
+
+const [loginMessage, setLoginMessage] = useState("");
+
   const packages = [
     {
       name: "Balloon Arch",
@@ -82,6 +91,37 @@ function App() {
       ...formData,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleAdminChange = (e) => {
+    setAdminCredentials({
+      ...adminCredentials,
+      [e.target.name]: e.target.value,
+    });
+  };
+  
+  const handleAdminLogin = async (e) => {
+    e.preventDefault();
+    setLoginMessage("");
+  
+    try {
+      await axios.post("http://localhost:5001/admin/login", adminCredentials);
+  
+      setIsAdminLoggedIn(true);
+      setActivePage("admin");
+      setAdminCredentials({
+        username: "",
+        password: "",
+      });
+    } catch (error) {
+      console.error(error);
+      setLoginMessage("Invalid username or password.");
+    }
+  };
+  
+  const handleLogout = () => {
+    setIsAdminLoggedIn(false);
+    setActivePage("home");
   };
 
   const handleSubmit = async (e) => {
@@ -155,11 +195,11 @@ function App() {
   </button>
 
   <button
-    className={activePage === "admin" ? "active-nav" : ""}
-    onClick={() => handleNavClick("admin")}
-  >
-    Admin Dashboard
-  </button>
+  className={activePage === "admin-login" || activePage === "admin" ? "active-nav" : ""}
+  onClick={() => handleNavClick(isAdminLoggedIn ? "admin" : "admin-login")}
+>
+  {isAdminLoggedIn ? "Admin Dashboard" : "Admin Login"}
+</button>
 </div>
       </nav>
 
@@ -324,13 +364,56 @@ function App() {
         </section>
       )}
 
-      {activePage === "admin" && (
-        <section className="section">
-          <div className="section-header">
-            <p className="eyebrow">Admin</p>
-            <h2>Booking Requests</h2>
-            <p>Review new requests and update their status.</p>
-          </div>
+{activePage === "admin-login" && (
+  <section className="section narrow-section">
+    <div className="form-card">
+      <div className="section-header">
+        <p className="eyebrow">Admin Access</p>
+        <h2>Admin Login</h2>
+        <p>Login to view and manage booking requests.</p>
+      </div>
+
+      <form onSubmit={handleAdminLogin} className="booking-form">
+        <input
+          name="username"
+          placeholder="Username"
+          value={adminCredentials.username}
+          onChange={handleAdminChange}
+          required
+        />
+
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          value={adminCredentials.password}
+          onChange={handleAdminChange}
+          required
+        />
+
+        <button type="submit" className="primary-button">
+          Login
+        </button>
+      </form>
+
+      {loginMessage && <p className="error-message">{loginMessage}</p>}
+    </div>
+  </section>
+)}
+
+    {activePage === "admin" && isAdminLoggedIn && (
+          <section className="section">
+          <div className="section-header admin-header">
+  <div>
+    <p className="eyebrow">Admin</p>
+    <h2>Booking Requests</h2>
+    <p>Review new requests and update their status.</p>
+  </div>
+
+  <button onClick={handleLogout} className="secondary-button">
+    Logout
+  </button>
+</div>
 
           {bookings.length === 0 ? (
             <div className="empty-state">
